@@ -22,7 +22,7 @@ report-generator
 
 1. Clona el repositorio:
    ```sh
-   git clone <repository-url>
+   git clone <[repository-url](https://github.com/DarkJ-18/report-generator.git)>
    cd report-generator
    ```
 
