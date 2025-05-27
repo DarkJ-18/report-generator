@@ -18,8 +18,11 @@ app.get('/', (req, res) => {
     res.render('createInvoice');
 });
 app.post('/generate-invoice', reportController.generateInvoice);
+app.get('/invoices', reportController.listInvoices); // Nueva ruta para listar facturas
+app.get('/invoice/:id/download', reportController.downloadInvoicePdf); // Nueva ruta para descargar un PDF específico
 
 
 app.listen(process.env.PORT, () => {
-    console.log(`Servidor en línea, puerto ${process.env.PORT}`);
-});
+    console.log(`Servidor corriendo en http://localhost:${process.env.PORT}`);
+}
+);

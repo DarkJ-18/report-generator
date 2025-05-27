@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Facturas</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { text-align: center; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        a { text-decoration: none; color: #007bff; }
+        a:hover { text-decoration: underline; }
+        .no-invoices { text-align: center; margin-top: 20px; font-style: italic; }
+        .actions { text-align: center; }
+        .back-link { display: block; margin-top: 20px; text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>Lista de Facturas</h1>
+
+    <% if (invoices && invoices.length > 0) { %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Número de Factura</th>
+                    <th>Cliente</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                    <th class="actions">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% invoices.forEach(invoice => { %>
+                    <tr>
+                        <td><%= invoice.invoiceNumber %></td>
+                        <td><%= invoice.customerName %></td>
+                        <td><%= new Date(invoice.date).toLocaleDateString() %></td>
+                        <td>$<%= invoice.totalAmount.toFixed(2) %></td>
+                        <td class="actions">
+                            <a href="/invoice/<%= invoice._id %>/download">Descargar PDF</a>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    <% } else { %>
+        <p class="no-invoices">No hay facturas disponibles.</p>
+    <% } %>
+
+    <div class="back-link">
+        <a href="/">Crear Nueva Factura</a>
+    </div>
+</body>
+</html>
