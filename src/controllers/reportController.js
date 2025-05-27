@@ -1,6 +1,4 @@
 const Invoice = require('../model/facturas_models');
-const path = require('path');
-const ejs = require('ejs');
 const PDFDocument = require('pdfkit'); // Necesario para generar el PDF
 
 class ReportController {
