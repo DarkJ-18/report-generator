@@ -18,9 +18,7 @@ app.get('/', (req, res) => {
     res.render('createInvoice');
 });
 app.post('/generate-invoice', reportController.generateInvoice);
-app.get('/crear-factura', (req, res) => {
-    res.render('createInvoice');
-});
+
 
 app.listen(process.env.PORT, () => {
     console.log(`Servidor en línea, puerto ${process.env.PORT}`);

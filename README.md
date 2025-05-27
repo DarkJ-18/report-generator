@@ -20,8 +20,7 @@ report-generator
     ├── model
     │   └── facturas_models.js
     └── templates
-        ├── createInvoice.ejs
-        └── invoiceTemplate.ejs
+        └── createInvoice.ejs
 ```
 
 ## Instalación
