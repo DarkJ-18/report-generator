@@ -8,12 +8,8 @@ class ReportController {
             if (typeof invoiceData.items === 'string') {
                 invoiceData.items = JSON.parse(invoiceData.items);
             }
-      
-
             const invoice = new Invoice(invoiceData);
             await invoice.save();
-
-       
 
             // Generar el PDF con PDFKit
             const doc = new PDFDocument({ margin: 50 });
